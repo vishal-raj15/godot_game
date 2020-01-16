@@ -1,0 +1,76 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Player/Idle0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Player/Jump0.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/Jump1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Player/Jump3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/Jump4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/Run0.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/Run1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Player/Run2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Player/Run3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Player/Run4.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player/Run7.png" type="Texture" id=12]
+[ext_resource path="res://tiles.tres" type="TileSet" id=13]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 28 )
+
+[node name="world" type="Node"]
+__meta__ = {
+"_edit_horizontal_guides_": [ -128.0 ]
+}
+
+[node name="player" type="KinematicBody2D" parent="."]
+position = Vector2( 448, 352 )
+scale = Vector2( -1.16811, 1.08661 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="player"]
+position = Vector2( 0.132635, 0.292785 )
+scale = Vector2( 0.862367, 0.945399 )
+frames = SubResource( 2 )
+animation = "fall"
+frame = 2
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 786436, 0, 0, 786437, 3, 0, 786438, 3, 0, 786439, 3, 0, 786440, 3, 0, 786441, 3, 0, 786442, 3, 0, 786443, 3, 0, 786444, 3, 0, 786445, 3, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0, 786450, 3, 0, 786451, 3, 0, 786452, 3, 0, 786453, 3, 0, 786454, 3, 0, 786455, 3, 0, 786456, 3, 0, 786457, 3, 0, 786458, 3, 0, 786459, 4, 0, 851972, 5, 0, 851973, 8, 0, 851974, 8, 0, 851975, 8, 0, 851976, 8, 0, 851977, 8, 0, 851978, 8, 0, 851979, 8, 0, 851980, 8, 0, 851981, 8, 0, 851982, 8, 0, 851983, 8, 0, 851984, 8, 0, 851985, 8, 0, 851986, 8, 0, 851987, 8, 0, 851988, 8, 0, 851989, 8, 0, 851990, 8, 0, 851991, 8, 0, 851992, 8, 0, 851993, 8, 0, 851994, 8, 0, 851995, 6, 0, 917508, 7, 0, 917509, 1, 0, 917510, 1, 0, 917511, 1, 0, 917512, 1, 0, 917513, 1, 0, 917514, 1, 0, 917515, 1, 0, 917516, 1, 0, 917517, 1, 0, 917518, 1, 0, 917519, 1, 0, 917520, 1, 0, 917521, 1, 0, 917522, 1, 0, 917523, 1, 0, 917524, 1, 0, 917525, 1, 0, 917526, 1, 0, 917527, 1, 0, 917528, 1, 0, 917529, 1, 0, 917530, 1, 0, 917531, 2, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
