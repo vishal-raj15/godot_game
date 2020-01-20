@@ -1,7 +1,9 @@
 extends KinematicBody2D
 const speed = 150
 const gravity = 20
-const jump_limit = 400
+const jump_limit = 500
+
+const UP = Vector2(0,-1)   #now right and up can be pressed at same time acts like a vector triangle
 var motion = Vector2()
 
 func _physics_process(delta):
@@ -17,17 +19,18 @@ func _physics_process(delta):
 		$Sprite.flip_h = false
 		$Sprite.play("run")
 		
-		
-	elif Input.is_action_pressed("ui_up"):
-		motion.y = -jump_limit
-		$Sprite.play("jump")
-		
-		
 	else:
 		motion.x=0
-		$Sprite.play("idle")	
+		$Sprite.play("idle")
 		
-	motion = move_and_slide(motion)
+	if is_on_floor():
+		if Input.is_action_just_pressed("ui_up"):
+			motion.y = -jump_limit
+			
+		
+	else:
+		$Sprite.play("jump")
+		
+	motion = move_and_slide(motion,UP)
 	pass
 	
- 
