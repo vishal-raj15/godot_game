@@ -33,8 +33,6 @@ func _physics_process(delta):
 			$Sprite.play("fall")
 			motion.x= lerp(motion.x , 0 , 0.05)
 		
-	else:
-		
 
 	else:
 		$Sprite.play("idle")
