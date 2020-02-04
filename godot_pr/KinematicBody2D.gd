@@ -24,6 +24,7 @@ func _physics_process(delta):
 
 	elif Input.is_action_pressed("ui_down"):
 		if is_on_floor():
+			$Sprite.flip_h = true
 			$Sprite.play("idle")
 			
 		else:
