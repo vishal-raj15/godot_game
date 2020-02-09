@@ -44,7 +44,7 @@ __meta__ = {
 }
 
 [node name="player" type="KinematicBody2D" parent="."]
-position = Vector2( 340.256, -80.3826 )
+position = Vector2( 162.694, -135.769 )
 scale = Vector2( -1.16811, 1.08661 )
 script = ExtResource( 1 )
 __meta__ = {
