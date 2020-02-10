@@ -5,6 +5,8 @@ const gravity = 20
 const jump_limit = 600
 const acc = 50
 
+const Fireball = preload("res://fireball.tscn")
+
 const UP = Vector2(0,-1)   #now right and up can be pressed at same time acts like a vector triangle
 var motion = Vector2()
 
@@ -33,7 +35,12 @@ func _physics_process(delta):
 			$Sprite.flip_h = true
 			$Sprite.play("fall")
 			motion.x= lerp(motion.x , 0 , 0.05)
+			
+	elif Input.is_action_just_pressed("ui_focus_next"):
 		
+		var fireball = Fireball.instance()
+		get_parent().add_child(fireball)
+		fireball.position = $Position2D.global_position
 
 	else:
 		$Sprite.play("idle")

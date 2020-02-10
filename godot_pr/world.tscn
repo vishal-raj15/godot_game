@@ -33,6 +33,11 @@ animations = [ {
 "loop": true,
 "name": "jump",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -44,7 +49,7 @@ __meta__ = {
 }
 
 [node name="player" type="KinematicBody2D" parent="."]
-position = Vector2( 162.694, -135.769 )
+position = Vector2( 174.325, -131.892 )
 scale = Vector2( -1.16811, 1.08661 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -52,10 +57,10 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="player"]
-position = Vector2( 0.132635, 0.292785 )
+position = Vector2( 0.132635, 0.292778 )
 scale = Vector2( 0.862367, 0.945399 )
 frames = SubResource( 1 )
-animation = "fall"
+animation = "shoot"
 playing = true
 flip_h = true
 
@@ -66,6 +71,9 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
 drag_margin_h_enabled = true
+
+[node name="Position2D" type="Position2D" parent="player"]
+position = Vector2( -20, 0 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 13 )
