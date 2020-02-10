@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Idle0.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Player/Jump0.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/sky/sky.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Player/Jump4.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Player/Run0.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Player/Run1.png" type="Texture" id=8]
@@ -34,7 +35,7 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ],
+"frames": [  ],
 "loop": true,
 "name": "shoot",
 "speed": 5.0
@@ -49,7 +50,7 @@ __meta__ = {
 }
 
 [node name="player" type="KinematicBody2D" parent="."]
-position = Vector2( 174.325, -131.892 )
+position = Vector2( 246.77, 223.424 )
 scale = Vector2( -1.16811, 1.08661 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -74,6 +75,17 @@ drag_margin_h_enabled = true
 
 [node name="Position2D" type="Position2D" parent="player"]
 position = Vector2( -20, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="player"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="player/ParallaxBackground"]
+motion_offset = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 698.881, 349.651 )
+scale = Vector2( 0.492209, 0.458967 )
+texture = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 13 )
