@@ -43,7 +43,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 28 )
+extents = Vector2( 8.71501, 26.9435 )
 
 [node name="world" type="Node"]
 __meta__ = {
@@ -51,12 +51,9 @@ __meta__ = {
 }
 
 [node name="player" type="KinematicBody2D" parent="."]
-position = Vector2( 335.827, 302.117 )
+position = Vector2( 275.648, 309.117 )
 scale = Vector2( -1.16811, 1.08661 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="AnimatedSprite" parent="player"]
 position = Vector2( 0.132635, 0.292778 )
@@ -67,24 +64,30 @@ playing = true
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+visible = false
 position = Vector2( 0, 4 )
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
+limit_top = 0
+limit_bottom = 448
 drag_margin_h_enabled = true
+smoothing_enabled = true
 
 [node name="Position2D" type="Position2D" parent="player"]
-position = Vector2( -20, 0 )
+visible = false
+position = Vector2( -17.694, 0.454643 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="player"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="player/ParallaxBackground"]
+position = Vector2( 43.0614, 12.3033 )
 motion_offset = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 1, 1 )
 
 [node name="Sprite" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 698.881, 349.651 )
+position = Vector2( 676.822, 337.676 )
 scale = Vector2( 0.492209, 0.458967 )
 texture = ExtResource( 4 )
 

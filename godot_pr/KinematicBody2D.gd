@@ -17,11 +17,16 @@ func _physics_process(delta):
 		$Sprite.flip_h = true
 		$Sprite.play("run")
 		
+		if sign($Position2D.position.x) == 1:
+			$Position2D.position.x *= -1
+		
 		
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = max(motion.x - acc , -max_speed)
 		$Sprite.flip_h = false
 		$Sprite.play("run")
+		if sign($Position2D.position.x) == -1:
+			$Position2D.position.x *= -1
 		
 
 	elif Input.is_action_pressed("ui_down"):
@@ -36,9 +41,14 @@ func _physics_process(delta):
 			$Sprite.play("fall")
 			motion.x= lerp(motion.x , 0 , 0.05)
 			
-	elif Input.is_action_just_pressed("ui_focus_next"):
+	elif Input.is_action_just_pressed("ui_select"):
 		
 		var fireball = Fireball.instance()
+		if sign($Position2D.position.x) == 1:
+			fireball._set_fireball_direction(-1)
+		
+		else:
+			fireball._set_fireball_direction(1)
 		get_parent().add_child(fireball)
 		fireball.position = $Position2D.global_position
 

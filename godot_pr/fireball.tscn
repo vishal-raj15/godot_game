@@ -17,27 +17,25 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 31, 5 )
+extents = Vector2( 7, 4 )
 
 [node name="fireball" type="Area2D"]
-position = Vector2( -4, -6 )
+position = Vector2( 0, -1 )
 script = ExtResource( 7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 16.3607, 8.01687 )
-scale = Vector2( 0.130315, 0.0712372 )
+position = Vector2( -17, 0 )
+scale = Vector2( 0.0892995, 0.0584612 )
 frames = SubResource( 1 )
 animation = "fire"
-frame = 2
 speed_scale = 5.0
 playing = true
 flip_h = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 20, 10 )
+position = Vector2( -1, 2 )
 shape = SubResource( 2 )
-
-[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( 20, 10 )
-scale = Vector2( 3.2, 0.55 )
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="body_entered" from="." to="." method="_on_fireball_body_entered"]

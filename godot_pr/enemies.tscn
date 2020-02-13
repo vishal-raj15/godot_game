@@ -1,39 +1,52 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/stick/s3.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/stick/s4.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/stick/s2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/stick/s1.png" type="Texture" id=4]
 [ext_resource path="res://enemies.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/die/d2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/die/d3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/die/d1.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "enemies",
-"speed": 15.0
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "d1",
+"speed": 4.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 6.13687, 24.5771 )
+extents = Vector2( 9.80974, 26.6726 )
 
 [node name="enemies" type="KinematicBody2D"]
 position = Vector2( -135.864, -169.34 )
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -3.40173, -0.841553 )
+position = Vector2( -6.19495, -1.54004 )
 scale = Vector2( 0.0997899, 0.0784949 )
 frames = SubResource( 1 )
-animation = "enemies"
+animation = "d1"
 frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.928798, 0.0710449 )
+position = Vector2( -5.81713, -4.11895 )
 shape = SubResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( 8.36238, -0.440125 )
 enabled = true
 cast_to = Vector2( 0, 27 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
