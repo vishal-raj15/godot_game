@@ -64,7 +64,6 @@ playing = true
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-visible = false
 position = Vector2( 0, 4 )
 shape = SubResource( 2 )
 
@@ -76,13 +75,11 @@ drag_margin_h_enabled = true
 smoothing_enabled = true
 
 [node name="Position2D" type="Position2D" parent="player"]
-visible = false
 position = Vector2( -17.694, 0.454643 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="player"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="player/ParallaxBackground"]
-position = Vector2( 43.0614, 12.3033 )
 motion_offset = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 1, 1 )
 
@@ -90,6 +87,9 @@ motion_mirroring = Vector2( 1, 1 )
 position = Vector2( 676.822, 337.676 )
 scale = Vector2( 0.492209, 0.458967 )
 texture = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="player"]
+one_shot = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 13 )
@@ -120,3 +120,4 @@ position = Vector2( 2300.15, 285.764 )
 
 [node name="enemies7" parent="." instance=ExtResource( 5 )]
 position = Vector2( 5402.62, 230.399 )
+[connection signal="timeout" from="player/Timer" to="player" method="_on_Timer_timeout"]
