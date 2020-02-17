@@ -84,7 +84,7 @@ func _physics_process(delta):
 func dead():
 	is_dead = true
 	motion = Vector2(0,0)
-	$AnimatedSprite.play("idle")
+	$AnimatedSprite.play("idle") 
 	$CollisionShape2D.disabled = true
 	$TImer.start()
 
