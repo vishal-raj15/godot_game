@@ -101,13 +101,13 @@ __meta__ = {
 }
 
 [node name="enemies" parent="." instance=ExtResource( 5 )]
-position = Vector2( 735.327, 340.087 )
+position = Vector2( 689.839, 181.464 )
 
 [node name="enemies2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1850.68, 268.797 )
+position = Vector2( 4180.69, 275.284 )
 
 [node name="enemies3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1141.11, 354.221 )
+position = Vector2( 1558.66, 186.267 )
 
 [node name="enemies4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 6144.92, 228.349 )
