@@ -21,11 +21,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "shoot",
@@ -39,6 +34,11 @@ animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -84,8 +84,8 @@ motion_offset = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 1, 1 )
 
 [node name="Sprite" type="Sprite" parent="player/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 636, 355.171 )
-scale = Vector2( 0.492209, 0.458967 )
+position = Vector2( 504.773, 304.734 )
+scale = Vector2( 0.365538, 0.398254 )
 texture = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="player"]
@@ -120,4 +120,8 @@ position = Vector2( 2300.15, 285.764 )
 
 [node name="enemies7" parent="." instance=ExtResource( 5 )]
 position = Vector2( 5402.62, 230.399 )
+
+[node name="sky1" type="Sprite" parent="."]
+position = Vector2( 915.076, 1242.05 )
+scale = Vector2( 0.299022, 0.282928 )
 [connection signal="timeout" from="player/Timer" to="player" method="_on_Timer_timeout"]
